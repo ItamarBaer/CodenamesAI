@@ -1,6 +1,6 @@
 # CodenamesAI
 
-This repository contains the implementation of AI agents designed to play the game "Codenames." The project explores various AI strategies, including word vector models, multi-agent systems, and communication across different semantic spaces. 
+This repository contains the implementation of AI agents designed to play the game "Codenames." The project explores various AI strategies, including word vector models, multi-agent systems, and communication across different semantic spaces. This repository uses code from CodenamesAICompetition: *https://github.com/CodenamesAICompetition/Game*
 
 ## Project Overview
 
@@ -23,20 +23,8 @@ One unique aspect of the project is training a neural network to translate betwe
   
 - **Guesser Agents**: Utilize various algorithms, including dialect matrix adjustments and random selection within a constrained feature space, to interpret the clues provided by the spymaster effectively.
 
-- **Multi-Agent Strategies**: Implements committee and auction-based methods for collective decision-making among multiple agents. This includes Borda Count, Proportional Voting, and Sealed Bid Auctions, each evaluated against set criteria for effectiveness and fairness.
+- **Multi-Agent Strategies**: Implements committee and auction-based methods for collective decision-making among multiple agents. This includes Plurality Voting, Borda Count, Proportional Voting, Sealed Bid with limited\unlimited budget and Vickrey Auctions, each evaluated against set criteria for effectiveness and fairness.
 
-## Results
-
-The AI agents demonstrated varying success rates across different configurations. Key findings include:
-- The GloVe-based agents often aligned better with human-like semantic understanding but struggled with specific in-game dynamics.
-- Auction-based multi-agent approaches provided superior results in decision-making scenarios, highlighting the potential of competitive strategies in AI coordination.
-
-## Future Work
-
-The project opens several avenues for further research, including:
-- Enhancing the robustness of AI agents by exploring additional word vector models and training techniques.
-- Developing more sophisticated multi-agent algorithms that can dynamically adjust strategies based on game state and opponent behavior.
-- Investigating the application of game-theoretic approaches and reinforcement learning to improve AI performance in Codenames and similar games.
 
 ## Running the game from terminal instructions
 
@@ -44,24 +32,18 @@ The project opens several avenues for further research, including:
 See below for more details about calling game.Game() directly.**
 
 Optionally if certain word vectors are needed, the directory to which should be specified in the arguments here.
-5 argument parsers have been provided:
-* --two_teams *True/False
-* --guesser1 *path/to/red_teams_guesser
-* --guesser2 *path/to/blue_teams_guesser (optional - only relevant when playing with two teams)
-* --codemaster1 *path/to/red_teams_codemaster
-* --codemaster2 *path/to/blue_teams_codemaster (optional - only relevant when playing with two teams)
+argument parsers have been provided:
+* --two_teams *True/False*
+* --guesser1 *path/to/red_teams_guesser*
+* --guesser2 *path/to/blue_teams_guesser* (optional - only relevant when two_teams=True)
+* --codemaster1 *path/to/red_teams_codemaster*
+* --codemaster2 *path/to/blue_teams_codemaster* (optional - only relevant when two_teams=True)
   
-* --w2v *path/to/word_vectors*
+* --w2v *path/to/google_vectors*
   * (to be loaded by gensim)
 * --glove *path/to/glove_vectors*
   *  (in stanford nlp format)
-* --wordnet ic-brown.dat or ic-semcor.dat
-  * (nltk corpus filename)
 
-* --glove_cm *path/to/glove_vectors*
-  * (legacy argument for glove_glove.py)
-* --glove_guesser *path/to/glove_vectors*
-  * (legacy argument for glove_glove.py)
 
 An optional seed argument can be used for the purpose of consistency against the random library.
 * --seed *Integer value* or "time"
@@ -74,6 +56,16 @@ Other optional arguments include:
   * raise flag for suppressing printing to std out
 * --game_name *String*
   * game_name in logfile
+* --num_games *Int*
+  * run consecutive games
+
+## Example Usage:
+```python
+python run_game.py # A game between consisting of two human players
+```
+```python
+python run_game.py --guesser # A game between consisting of two human players
+```
 
 
 ### Installation
