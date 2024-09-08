@@ -28,8 +28,7 @@ One unique aspect of the project is training a neural network to translate betwe
 
 ## Running the game from terminal instructions
 
-**run_game.py simply handles system arguments then called game.Game().
-See below for more details about calling game.Game() directly.**
+**run_game.py handles system arguments.**
 
 Optionally if certain word vectors are needed, the directory to which should be specified in the arguments here.
 argument parsers have been provided:
@@ -87,6 +86,7 @@ A game consisting of the Annealer codemaster and Plurality Voting:
 ```python
 python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --guesser1 players.guesser_multi_agent_plurality_voting.MetaGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
 ```
+
 
 
 #### The Vector files contanied in this repository are filtered. The full files can be found here:
