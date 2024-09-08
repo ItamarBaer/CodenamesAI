@@ -130,7 +130,8 @@ class AICodemaster(Codemaster):
 
     def get_init_state(self, red_words, bad_words):
         avg_red_word_score = np.mean([self.lm[w] for w in red_words], axis=0)
-        init_index = np.argmin([np.linalg.norm(self.lm[self.pre_processed_ds[w][0]] - avg_red_word_score) for w in red_words])
+        init_index = np.argmin([np.linalg.norm(self.lm[self.pre_processed_ds[w][0]] - avg_red_word_score)
+                                for w in red_words])
         state = self.pre_processed_ds[red_words[init_index]][0]
         while state in red_words or state in bad_words:
             state = random.choice(self.pre_processed_ds[random.choice(red_words)])
