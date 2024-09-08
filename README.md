@@ -80,3 +80,8 @@ Clone the repository and install the necessary dependencies:
 git clone https://github.com/ItamarBaer/CodenamesAI.git
 cd CodenamesAI
 pip install -r requirements.txt
+```
+
+### The Vector files contanied in this repository are filtered. The full files can be found here:
+* [Glove Vectors](https://nlp.stanford.edu/data/glove.6B.zip) (~2.25 GB)
+* [Google News Vectors](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit) (~3.5 GB)
