@@ -87,9 +87,13 @@ A game consisting of the Annealer codemaster and Plurality Voting:
 python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --guesser1 players.guesser_multi_agent_plurality_voting.MetaGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
 ```
 
+A game consisting of the Translator codemaster, translating from Google vectors to GloVe vectors:
+```python
+python run_game.py --codemaster1 players.codemaster_translator.Translator --guesser1 players.guesser_google_baseline.AIGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
+```
 
 
-#### The Vector files contanied in this repository are filtered. The full files can be found here:
+#### The Vector files contained in this repository are filtered. The full files can be found here:
 
 * [Glove Vectors](https://nlp.stanford.edu/data/glove.6B.zip) (~2.25 GB)
 * [Google News Vectors](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit) (~3.5 GB)
