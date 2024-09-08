@@ -2,7 +2,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 import numpy as np
 
-from players.codemaster_annealing_v4 import AICodemaster
+from players.codemaster_annealing import AICodemaster
 
 def cosine_distance_loss(y_true, y_pred):
     # Calculate the cosine similarity and convert it to a distance
