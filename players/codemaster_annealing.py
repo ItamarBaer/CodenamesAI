@@ -86,8 +86,13 @@ class MyProblem(Annealer):
 
 class AICodemaster(Codemaster):
 
-    def __init__(self, brown_ic = None, glove_vecs =None, word_vectors = None):
-        self.lm = glove_vecs
+    def __init__(self, brown_ic = None, glove_vecs = None, word_vectors = None):
+        if glove_vecs:
+            self.lm = glove_vecs
+        elif word_vectors:
+            self.lm = word_vectors
+        else:
+            raise RuntimeError("No vectors were provided")
         super().__init__()
         self.pre_processed_ds = {}
         with open('closest_combined_words_within_filtered_glove.json', 'r') as f:
@@ -104,7 +109,6 @@ class AICodemaster(Codemaster):
         bad_words = []
         assassin = ''
 
-        # Creates Red-Labeled Word arrays, and everything else arrays
         for i in range(25):
             if self.words[i][0] == '*':
                 continue
