@@ -38,7 +38,42 @@ The project opens several avenues for further research, including:
 - Developing more sophisticated multi-agent algorithms that can dynamically adjust strategies based on game state and opponent behavior.
 - Investigating the application of game-theoretic approaches and reinforcement learning to improve AI performance in Codenames and similar games.
 
-## Getting Started
+## Running the game from terminal instructions
+
+**run_game.py simply handles system arguments then called game.Game().
+See below for more details about calling game.Game() directly.**
+
+Optionally if certain word vectors are needed, the directory to which should be specified in the arguments here.
+5 argument parsers have been provided:
+* --two_teams *True/False
+* --guesser1 *path/to/red_teams_guesser
+* --guesser2 *path/to/blue_teams_guesser (optional - only relevant when playing with two teams)
+* --codemaster1 *path/to/red_teams_codemaster
+* --codemaster2 *path/to/blue_teams_codemaster (optional - only relevant when playing with two teams)
+  
+* --w2v *path/to/word_vectors*
+  * (to be loaded by gensim)
+* --glove *path/to/glove_vectors*
+  *  (in stanford nlp format)
+* --wordnet ic-brown.dat or ic-semcor.dat
+  * (nltk corpus filename)
+
+* --glove_cm *path/to/glove_vectors*
+  * (legacy argument for glove_glove.py)
+* --glove_guesser *path/to/glove_vectors*
+  * (legacy argument for glove_glove.py)
+
+An optional seed argument can be used for the purpose of consistency against the random library.
+* --seed *Integer value* or "time"
+  * ("time" uses Time.time() as the seed)
+
+Other optional arguments include:
+* --no_log
+  * raise flag for suppressing logging
+* --no_print
+  * raise flag for suppressing printing to std out
+* --game_name *String*
+  * game_name in logfile
 
 
 ### Installation
