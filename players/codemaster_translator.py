@@ -32,10 +32,7 @@ def learn_vector_relationship(dict1, dict2, key_list, epochs=64, batch_size=32):
 class Translator(AICodemaster):
 
     def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None):
-        wordlist = []
-        with open('combine_words.txt') as infile:
-            for line in infile:
-                wordlist.append(line.rstrip().lower())
+        wordlist = glove_vecs.keys()
 
         model = learn_vector_relationship(word_vectors, glove_vecs, wordlist)
 
