@@ -60,13 +60,19 @@ Other optional arguments include:
   * run consecutive games
 
 ## Example Usage:
+ A game between consisting of two human players:
 ```python
-python run_game.py # A game between consisting of two human players
+python run_game.py
 ```
+A game consisting of the Annealer codemaster and the baseline Google guesser:
 ```python
-python run_game.py --guesser # A game between consisting of two human players
+python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --guesser1 players.guesser_google_baseline.AIGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
 ```
 
+A game consisting of the Annealer codemaster and Plurality Voting:
+```python
+python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --guesser1 players.guesser_multi_agent_plurality_voting.MetaGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
+```
 
 ### Installation
 Clone the repository and install the necessary dependencies:
