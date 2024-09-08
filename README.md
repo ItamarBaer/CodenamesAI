@@ -49,7 +49,8 @@ An optional seed argument can be used for the purpose of consistency against the
 * --seed *Integer value* or "time"
   * ("time" uses Time.time() as the seed)
 
-Other optional arguments include:
+
+**Other optional arguments include:**
 * --no_log
   * raise flag for suppressing logging
 * --no_print
@@ -59,11 +60,24 @@ Other optional arguments include:
 * --num_games *Int*
   * run consecutive games
 
+    
+
+## Installation
+Clone the repository and install the necessary dependencies:
+```bash
+git clone https://github.com/ItamarBaer/CodenamesAI.git
+cd CodenamesAI
+pip install -r requirements.txt
+```
+
+
 ## Example Usage:
+
  A game between consisting of two human players:
 ```python
 python run_game.py
 ```
+
 A game consisting of the Annealer codemaster and the baseline Google guesser:
 ```python
 python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --guesser1 players.guesser_google_baseline.AIGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
@@ -74,14 +88,8 @@ A game consisting of the Annealer codemaster and Plurality Voting:
 python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --guesser1 players.guesser_multi_agent_plurality_voting.MetaGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
 ```
 
-### Installation
-Clone the repository and install the necessary dependencies:
-```bash
-git clone https://github.com/ItamarBaer/CodenamesAI.git
-cd CodenamesAI
-pip install -r requirements.txt
-```
 
-### The Vector files contanied in this repository are filtered. The full files can be found here:
+#### The Vector files contanied in this repository are filtered. The full files can be found here:
+
 * [Glove Vectors](https://nlp.stanford.edu/data/glove.6B.zip) (~2.25 GB)
 * [Google News Vectors](https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit) (~3.5 GB)
