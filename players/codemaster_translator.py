@@ -11,20 +11,16 @@ def cosine_distance_loss(y_true, y_pred):
     return 1 - tf.reduce_sum(y_true * y_pred, axis=-1)
 
 def learn_vector_relationship(dict1, dict2, key_list, epochs=64, batch_size=32):
-    # Extract input (X) and output (Y) data based on the key list
     X = np.array([dict1[key.lower()] for key in key_list])
     Y = np.array([dict2[key.lower()] for key in key_list])
 
-    # Define a simple feedforward neural network
     model = models.Sequential()
     model.add(layers.Input(shape=(X.shape[1],)))  # Input layer with number of units matching X's dimensionality
-    model.add(layers.Dense(300, activation='relu'))  # Hidden layer with 128 units
+    model.add(layers.Dense(300, activation='relu'))  # Hidden layer with 300 units
     model.add(layers.Dense(Y.shape[1]))  # Output layer with number of units matching Y's dimensionality
 
-    # Compile the model
     model.compile(optimizer='adam', loss=cosine_distance_loss)
 
-    # Train the model with validation
     model.fit(X, Y, epochs=epochs, batch_size=batch_size, verbose=0)
 
     return model
