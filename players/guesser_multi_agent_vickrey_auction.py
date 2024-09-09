@@ -10,8 +10,8 @@ class MetaGuesser:
     The player will pay the second highest bid.
     """
 
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None, num_players=5, budget=10):
-        self.players = [players.guesser_random_dialect.AIGuesser(brown_ic, glove_vecs, word_vectors, budget)
+    def __init__(self, glove_vecs=None, word_vectors=None, num_players=5, budget=10):
+        self.players = [players.guesser_random_dialect.AIGuesser(glove_vecs, word_vectors, budget)
                         for _ in range(num_players)]
 
     def set_board(self, words):

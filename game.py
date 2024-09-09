@@ -27,7 +27,7 @@ class Game:
     """
 
     def __init__(self, codemasters, guessers, two_teams,
-                 seed="time", do_print=True, do_log=True, game_name="default",
+                 seed="time", do_print=True, do_log=True, do_color=True, game_name="default",
                  cm_kwargs={}, g_kwargs={}):
         """ Setup Game details
 
@@ -74,8 +74,8 @@ class Game:
         self.cm_kwargs = cm_kwargs
         self.g_kwargs = g_kwargs
         self.do_log = do_log
+        self.do_color = do_color
         self.game_name = game_name
-        self.colors = ["Red, Blue"]
 
 
         # set seed so that board/keygrid can be reloaded later
@@ -132,11 +132,6 @@ class Game:
             return glove_vecs
 
     @staticmethod
-    def load_wordnet(wordnet_file):
-        """Function that loads wordnet from nltk.corpus"""
-        return wordnet_ic.ic(wordnet_file)
-
-    @staticmethod
     def load_w2v(w2v_file_path):
         """Function to initalize gensim w2v object from Google News w2v Vectors
         Vectors Source: https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit
@@ -150,20 +145,20 @@ class Game:
         for i in range(len(self.words_on_board)):
             if counter >= 1 and i % 5 == 0:
                 print("\n")
-            if self.key_grid[i] == 'Red':
-                # print(str.center(colorama.Fore.RED + self.words_on_board[i], 15), " ", end='')
+            if not self.do_color:
                 print(str.center(colorama.Fore.RESET + self.words_on_board[i], 15), " ", end='')
                 counter += 1
+            elif self.key_grid[i] == 'Red':
+                print(str.center(colorama.Fore.RED + self.words_on_board[i], 15), " ", end='')
+                counter += 1
             elif self.key_grid[i] == 'Blue':
-                # print(str.center(colorama.Fore.BLUE + self.words_on_board[i], 15), " ", end='')
-                print(str.center(colorama.Fore.RESET + self.words_on_board[i], 15), " ", end='')
+                print(str.center(colorama.Fore.BLUE + self.words_on_board[i], 15), " ", end='')
                 counter += 1
             elif self.key_grid[i] == 'Civilian':
                 print(str.center(colorama.Fore.RESET + self.words_on_board[i], 15), " ", end='')
                 counter += 1
             else:
-                # print(str.center(colorama.Fore.MAGENTA + self.words_on_board[i], 15), " ", end='')
-                print(str.center(colorama.Fore.RESET + self.words_on_board[i], 15), " ", end='')
+                print(str.center(colorama.Fore.MAGENTA + self.words_on_board[i], 15), " ", end='')
                 counter += 1
         print(str.center(colorama.Fore.RESET +
                          "\n___________________________________________________________", 60))

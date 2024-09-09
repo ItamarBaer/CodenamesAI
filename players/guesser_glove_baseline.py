@@ -5,9 +5,8 @@ from players.guesser import Guesser
 
 class AIGuesser(Guesser):
 
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None):
+    def __init__(self, glove_vecs=None, word_vectors=None):
         super().__init__()
-        self.brown_ic = brown_ic
         self.glove_vecs = glove_vecs
         self.word_vectors = word_vectors
         self.num = 0

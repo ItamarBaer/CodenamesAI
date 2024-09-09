@@ -7,9 +7,8 @@ from players.guesser import Guesser
 class AIGuesser(Guesser):
     """"AIGuesser with dialect matrix"""
 
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None, budget=0):
+    def __init__(self, glove_vecs=None, word_vectors=None, budget=0):
         super().__init__()
-        self.brown_ic = brown_ic
         self.glove_vecs = glove_vecs
         self.word_vectors = word_vectors
         self.budget = budget

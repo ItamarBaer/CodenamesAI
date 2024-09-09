@@ -3,7 +3,7 @@ from abc import ABC, abstractmethod
 class Guesser(ABC):
     """guesser abstract class that mimics a field operative in the codenames game"""
 
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None):
+    def __init__(self, glove_vecs=None, word_vectors=None):
         """Handle pretrained vectors and declare instance vars"""
         pass
 

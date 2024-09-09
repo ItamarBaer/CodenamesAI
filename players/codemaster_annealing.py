@@ -86,7 +86,7 @@ class MyProblem(Annealer):
 
 class AICodemaster(Codemaster):
 
-    def __init__(self, brown_ic = None, glove_vecs = None, word_vectors = None):
+    def __init__(self, glove_vecs = None, word_vectors = None):
         if glove_vecs:
             self.lm = glove_vecs
         elif word_vectors:

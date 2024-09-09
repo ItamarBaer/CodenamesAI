@@ -9,8 +9,8 @@ class MetaGuesser:
     Each guesser has 1 point to distribute among their guesses, and they will do so using normalization.
     """
 
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None, num_players=5):
-        self.players = [players.guesser_random_dialect.AIGuesser(brown_ic, glove_vecs, word_vectors) for i in
+    def __init__(self, glove_vecs=None, word_vectors=None, num_players=5):
+        self.players = [players.guesser_random_dialect.AIGuesser(glove_vecs, word_vectors) for i in
                         range(num_players)]
 
 

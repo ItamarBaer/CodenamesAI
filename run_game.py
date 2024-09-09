@@ -27,13 +27,13 @@ class GameRun:
         parser.add_argument("--w2v_weights", help="path to w2v weights file of None", default=None)
         parser.add_argument("--glove", help="Path to glove file or None", default=None)
         parser.add_argument("--glove_weights", help="path to glove weights file of None", default=None)
-        parser.add_argument("--wordnet", help="Name of wordnet file or None, most like ic-brown.dat", default=None)
         parser.add_argument("--glove_cm", help="Path to glove file or None", default=None)
         parser.add_argument("--glove_guesser", help="Path to glove file or None", default=None)
 
         parser.add_argument("--two_teams", help="Creates a game with 2 competing teams", action='store_true', default=False)
         parser.add_argument("--no_log", help="Supress logging", action='store_true', default=False)
         parser.add_argument("--no_print", help="Supress printing", action='store_true', default=False)
+        parser.add_argument("--no_color", help="Supress coloring (for human players)", action='store_true', default=False)
         parser.add_argument("--game_name", help="Name of game in log", default="default")
 
         parser.add_argument("--num_games", help="Number of games to run", default=1, type=int)
@@ -42,6 +42,7 @@ class GameRun:
 
         self.do_log = not args.no_log
         self.do_print = not args.no_print
+        self.do_color = not args.no_color
         self.have_AI_player = False
         self.save_stdout = sys.stdout
         if not self.do_print:
@@ -99,12 +100,6 @@ class GameRun:
 
         # if the game is going to have an ai, load up word vectors
         if self.have_AI_player:
-            if args.wordnet is not None:
-                brown_ic = Game.load_wordnet(args.wordnet)
-                self.g_kwargs["brown_ic"] = brown_ic
-                self.cm_kwargs["brown_ic"] = brown_ic
-                print('loaded wordnet')
-
             if args.glove is not None:
                 glove_vectors = Game.load_glove_vecs(args.glove, args.glove_weights)
                 self.g_kwargs["glove_vecs"] = glove_vectors
@@ -187,7 +182,8 @@ if __name__ == "__main__":
                     seed=game_setup.seed,
                     do_print=game_setup.do_print,
                     do_log=game_setup.do_log,
-                    two_teams= game_setup.two_teams,
+                    do_color=game_setup.do_color,
+                    two_teams=game_setup.two_teams,
                     game_name=game_setup.game_name,
                     cm_kwargs=game_setup.cm_kwargs,
                     g_kwargs=game_setup.g_kwargs)

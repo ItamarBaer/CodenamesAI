@@ -9,8 +9,8 @@ class MetaGuesser:
     most votes wins, without considering the certainty levels
     (AKA simple committe)
     """
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None):
-        self.players = [players.guesser_random_dialect.AIGuesser(brown_ic, glove_vecs, word_vectors, 0) for i in range(5)]
+    def __init__(self, glove_vecs=None, word_vectors=None):
+        self.players = [players.guesser_random_dialect.AIGuesser(glove_vecs, word_vectors, 0) for i in range(5)]
 
     def set_board(self, words):
         for player in self.players:

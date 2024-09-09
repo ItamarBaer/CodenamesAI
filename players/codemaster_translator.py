@@ -27,7 +27,7 @@ def learn_vector_relationship(dict1, dict2, key_list, epochs=64, batch_size=32):
 
 class Translator(AICodemaster):
 
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None):
+    def __init__(self, glove_vecs=None, word_vectors=None):
         wordlist = glove_vecs.keys()
 
         model = learn_vector_relationship(word_vectors, glove_vecs, wordlist)
@@ -41,7 +41,7 @@ class Translator(AICodemaster):
         # Create the translated_vecs dictionary
         translated_vecs = {word.lower(): predicted_vectors[i] for i, word in enumerate(wordlist)}
 
-        super().__init__(brown_ic, translated_vecs, word_vectors)
+        super().__init__(translated_vecs, word_vectors)
 
     def set_game_state(self, words, maps):
         super().set_game_state(words, maps)

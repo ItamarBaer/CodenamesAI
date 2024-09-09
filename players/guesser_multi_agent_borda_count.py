@@ -9,8 +9,8 @@ class MetaGuesser:
     and the guesses receive points based on their rank.
     The guess with the highest total points across all players is the
     most acceptable candidate."""
-    def __init__(self, brown_ic=None, glove_vecs=None, word_vectors=None):
-        self.players = [players.guesser_random_dialect.AIGuesser(brown_ic, glove_vecs, word_vectors, -2) for i in
+    def __init__(self, glove_vecs=None, word_vectors=None):
+        self.players = [players.guesser_random_dialect.AIGuesser(glove_vecs, word_vectors, -2) for i in
                         range(5)]
         self.unique_guess_counts = []
         self.certainty_of_chosen_guess = []
