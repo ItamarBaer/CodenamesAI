@@ -1,4 +1,5 @@
 # CodenamesAI
+## A Project by Noa Velner, Tamir Perry and Itamar Baer
 
 This repository contains the implementation of AI agents designed to play the game "Codenames." The project explores various AI strategies, including word vector models, multi-agent systems, and communication across different semantic spaces. This repository uses code from CodenamesAICompetition: *https://github.com/CodenamesAICompetition/Game*
 
