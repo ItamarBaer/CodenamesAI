@@ -36,14 +36,12 @@ class MyProblem(Annealer):
 
         # Choose a word randomly with weights
         chosen_word = random.choices(legal_words, weights=weights, k=1)[0]
-        # chosen_word = random.choices(legal_words, k=1)[0]
         while chosen_word in self.good_words or chosen_word in self.bad_words:
             chosen_word = random.choices(legal_words, weights=weights, k=1)[0]
-            # chosen_word = random.choices(legal_words, k=1)[0]
         self.state = chosen_word
-    #
+
     def update(self, *args, **kwargs):
-        # keep this if I want to avoid printing.
+        # keep this to avoid printing.
         pass
 
     def energy(self):
@@ -74,7 +72,8 @@ class MyProblem(Annealer):
         good_dist = np.mean([word_score(w) for w in available_words[:num]], axis=0)
         bad_dist = min([word_score(word) for word in self.bad_words])
         assassin_dist = word_score(self.assassin.lower())
-        score = (self.good_factor*good_dist) - (self.bad_factor * bad_dist) - (self.assassin_factor*assassin_dist) - (self.num_factor * num)
+        score = ((self.good_factor*good_dist) - (self.bad_factor * bad_dist) - (self.assassin_factor*assassin_dist) -
+                 (self.num_factor * num))
 
         if self.state.lower() in self.previous_clues:
             score += 10

@@ -58,6 +58,8 @@ An optional seed argument can be used for the purpose of consistency against the
   * game_name in logfile
 * --num_games *Int*
   * run consecutive games
+* --no_color
+  * suppress color display (for human players)
 
     
 
@@ -88,6 +90,7 @@ python run_game.py --codemaster1  players.codemaster_annealing.AICodemaster --gu
 ```
 
 A game consisting of the Translator codemaster, translating from Google vectors to GloVe vectors:
+  *  *'--no_print' will not work with translators.*
 ```python
 python run_game.py --codemaster1 players.codemaster_translator.Translator --guesser1 players.guesser_google_baseline.AIGuesser --w2v filtered_GoogleNews-vectors-negative300.bin --glove filtered_glove.6B.300d.txt
 ```
